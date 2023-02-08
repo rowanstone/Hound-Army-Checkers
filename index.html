@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Hound Army Checkers</title>
+    <!--<meta charset="utf-8"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet">
+    <script type="text/javascript" src="Game.js"></script>
+</head>
+<header>
+    <h2> Hound Army Checkers </h2>
+</header>
+<body>
+<div id="grid-container" class="grid-container">
+    <div id="space"></div>
+    <div id='world' align="center"></div>
+    <div id = "avatar-computer">
+        <img src="ErisPortrait.png"><br>
+        <label>Commander Eris</label>
+    </div>
+    <div id = "manual">
+        <button class="collapsible">How to Play</button>
+        <div class="content" style>
+            <pre>Welcome to Hound Army Checkers! Commander Eris of the Cat Army is
+up to no good and is plotting an invasion of Hound Kingdom!
+
+Your mission as a Commanding Officer of the Hound Army is to defeat
+the Cat Army. Your hound troops are represented by the white pieces
+on the checkerboard, while your opponent's cat troops are
+represented by the black pieces.
+
+You and your opponent will begin the game with 12 troops each. In
+order to defeat the Cat Army, you must capture all of your
+opponent's troops or trap them so they have no valid maneuvers left.
+You can only move one of your standard pieces at a time, and only
+diagonally forward by one space. To help with your strategy, hints
+for available moves will be highlighted in yellow on the board.
+
+If one of your troops manages to successfully infiltrate the Cat
+Army and reaches your opponent's end of the board, their rank
+will be promoted and they will be able to move forward as well
+as backward on the board. Beware that the same rule holds true
+for Cat Army troops that infiltrate your ranks as well!
+
+Best of luck to you, Officer! The fate of Hound Kingdom rests
+in your paws!</pre>
+        </div>
+        <script>
+            var x;
+            var button = document.getElementsByClassName('collapsible');
+            for (x = 0; x < button.length; x++) {
+                button[x].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    }
+                    else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+    </div>
+    <div id = "avatar-player">
+        <img src="hound1.png"><br>
+        <label>Player 1</label>
+    </div>
+    <div class = "options-menu">
+        <div id = "scoreLabel">Score</div>
+        <div id = "misc">
+            <label>Current Players Turn:</label>
+            <p id="player"></p>
+        </div>
+        <div id = "clockLabel">Shot Clock</div>
+        <div id = "scoreTable">
+            <table class="scoreboard" align="center">
+                <tr class="scoreTRL">
+                    <td class="table-item" width="30px">P1</td>
+                    <td class="table-item" width="30px">P2</td>
+                </tr>
+                <tr class="scoreTR">
+                    <td class="table-item" id="player1-score">0</td>
+                    <td class="table-item" id="player2-score">0</td>
+                </tr>
+            </table>
+        </div>
+        <div id="selected-piece">
+            <p>Selected Piece:<p id="actor"></p></p>
+        </div>
+        <div id="shot-clock" align="center">
+            <table class="clock-table" id="clock-table">
+                <!--<tr>Shot clock:</tr>-->
+                <tr><td class="timeLabel" width="40px">P1</td><td class="timeLabel" width="40px">P2</td></tr>
+                <tr><td class="time" id="p1sc">0</td><td class="time" id="p2sc">0</td></tr>
+            </table>
+        </div>
+    </div>
+    <div id = "space3"></div>
+    <div id="Music" align="center">
+        <audio id="myAudio" src="http://www.sousound.com/music/healing/healing_01.mp3" controls="" preload="" loop="">
+        </audio>
+    </div>
+
+</div>
+<div id="new-game" align="center">
+    <button type="submit" onClick="refreshPage()"> New Game</button>
+</div>
+<div id="testing" align="right">
+    <button type="submit" onClick="test()"> Test</button>
+</div>
+</body>
+<script>
+    init();
+</script>
+</html>
