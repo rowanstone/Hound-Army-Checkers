@@ -1,4 +1,7 @@
 # Hound-Army-Checkers
+Created by Spencer Albert, Samantha Coyle, Taylor Moralez, and Rowan Stone
+CS3398 Fall 2018: Software Engineering, Section 001
+September 12, 2018
 
 To be able to play a Hound Army Game of Checkers,please do the following:
 
